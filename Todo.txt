@@ -1,0 +1,11 @@
+﻿1. Beter overzicht van rider properties. 
+2. PricingForm meer in het midden zetten. 
+3. De rider klasse meer get set maken. 
+4. Klok resetten bij iedere button click.
+5. Overround berekenen.
+
+5. Inloggen.
+6. Aanpassen aan resolutie.
+7. Rounding bij de pricing.
+8. De rider properties loggen in een database.
+ 

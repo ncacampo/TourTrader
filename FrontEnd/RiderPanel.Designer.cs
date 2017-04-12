@@ -2,6 +2,18 @@
 {
     partial class RiderPanel
     {
+        public System.Windows.Forms.Button StatusButton;
+        public System.Windows.Forms.Label PNL;
+        public System.Windows.Forms.Label rider;
+        public System.Windows.Forms.Label discard;
+        public System.Windows.Forms.Label price;
+        public System.Windows.Forms.Label overround;
+        public System.Windows.Forms.Label meback;
+        public System.Windows.Forms.Label back;
+        public System.Windows.Forms.Label lay;
+        public System.Windows.Forms.Label melay;
+        public System.Windows.Forms.Label turnover;
+
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -20,8 +32,6 @@
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
-
         /// <summary> 
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
@@ -34,7 +44,7 @@
             this.discard = new System.Windows.Forms.Label();
             this.price = new System.Windows.Forms.Label();
             this.overround = new System.Windows.Forms.Label();
-            this.omzet = new System.Windows.Forms.Label();
+            this.turnover = new System.Windows.Forms.Label();
             this.meback = new System.Windows.Forms.Label();
             this.back = new System.Windows.Forms.Label();
             this.lay = new System.Windows.Forms.Label();
@@ -101,12 +111,12 @@
             // 
             // omzet
             // 
-            this.omzet.AutoSize = true;
-            this.omzet.Location = new System.Drawing.Point(374, 3);
-            this.omzet.Name = "omzet";
-            this.omzet.Size = new System.Drawing.Size(46, 13);
-            this.omzet.TabIndex = 13;
-            this.omzet.Text = "turnover";
+            this.turnover.AutoSize = true;
+            this.turnover.Location = new System.Drawing.Point(374, 3);
+            this.turnover.Name = "omzet";
+            this.turnover.Size = new System.Drawing.Size(46, 13);
+            this.turnover.TabIndex = 13;
+            this.turnover.Text = "turnover";
             // 
             // meback
             // 
@@ -135,7 +145,7 @@
             this.lay.Size = new System.Drawing.Size(20, 13);
             this.lay.TabIndex = 16;
             this.lay.Text = "lay";
-            this.lay.Click += new System.EventHandler(this.clickLay);
+            this.lay.Click += new System.EventHandler(this.clickBack);
             // 
             // melay
             // 
@@ -152,7 +162,7 @@
             this.Controls.Add(this.lay);
             this.Controls.Add(this.back);
             this.Controls.Add(this.meback);
-            this.Controls.Add(this.omzet);
+            this.Controls.Add(this.turnover);
             this.Controls.Add(this.overround);
             this.Controls.Add(this.price);
             this.Controls.Add(this.discard);
@@ -162,21 +172,8 @@
             this.Size = new System.Drawing.Size(438, 22);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
-        #endregion
-
-        public System.Windows.Forms.Button StatusButton;
-        public System.Windows.Forms.Label PNL;
-        public System.Windows.Forms.Label rider;
-        public System.Windows.Forms.Label discard;
-        public System.Windows.Forms.Label price;
-        public System.Windows.Forms.Label overround;
-        public System.Windows.Forms.Label meback;
-        public System.Windows.Forms.Label back;
-        public System.Windows.Forms.Label lay;
-        public System.Windows.Forms.Label melay;
-        public System.Windows.Forms.Label omzet;
+    
     }
 }

@@ -3,6 +3,7 @@ using System.Drawing;
 using TourTrader.TO;
 using System.Windows.Forms;
 using System.Net;
+using System.Collections.Generic;
 
 namespace TourTrader
 {
@@ -12,13 +13,13 @@ namespace TourTrader
         
         public PricingForm(string riderName, long SelectionID)
         {
-            MainProgram.Clock.Stop();
+            BackEnd.clock.Stop();
             ID = SelectionID;
             InitializeComponent();
-            this.name.Text = riderName;
+            this.NameLabel.Text = riderName;
 
             string stringRequest = "https://sportsiteexweb.betfair.com/betting/LoadRunnerInfoChartAction.do?marketId=";
-            stringRequest += MainProgram.marketID.ToString().Split('.')[1].ToString();
+            stringRequest += Program.marketID.ToString().Split('.')[1].ToString();
             stringRequest += "&";
             stringRequest += "selectionId=";
             stringRequest += this.ID.ToString();
@@ -35,9 +36,10 @@ namespace TourTrader
 
         private void clickLayButton(object sender, EventArgs e)
         {
+            List<PlaceInstruction> placeInstructions = new List<PlaceInstruction>();
 
-            string price = maximumprice.Text;
-            string size = amountBox2.Text; ;
+            string price = MaxPriceBox.Text;
+            string size = SizeBox.Text; ;
 
             PlaceInstruction placeInstruction = new PlaceInstruction();
             placeInstruction.OrderType = OrderType.LIMIT;
@@ -49,22 +51,25 @@ namespace TourTrader
             
             order.PersistenceType = PersistenceType.PERSIST;
             
-            order.Price = Utils.ToDouble(price);
-            order.Size = Convert.ToDouble(size);
+            order.Price = Utils.RoundPrice(Utils.ToDouble(price));
+            order.Size = Utils.ToDouble(size);
 
             placeInstruction.LimitOrder = order;
 
-            MainProgram.placeInstructions.Add(placeInstruction);
+            placeInstructions.Add(placeInstruction);
 
-            MainProgram.Clock.Start();
+            ApiSet.PlaceOrder(placeInstructions);
+
+            BackEnd.clock.Start();
             this.Dispose();
+
 
         }
 
         private void clickButtonBack(object sender, EventArgs e)
         {
-            string price = maximumprice.Text;
-            string size = amountBox2.Text; ;
+            string price = MaxPriceBox.Text;
+            string size = SizeBox.Text; ;
 
             PlaceInstruction PlaceInstruction = new PlaceInstruction();
             PlaceInstruction.OrderType = OrderType.LIMIT;
@@ -76,31 +81,25 @@ namespace TourTrader
 
             order.PersistenceType = PersistenceType.PERSIST;
 
-            order.Price = Utils.ToDouble(price);
-            order.Size = Convert.ToDouble(size);
+            order.Price = Utils.RoundPrice(Utils.ToDouble(price));
+            order.Size = Utils.ToDouble(size);
 
             PlaceInstruction.LimitOrder = order;
 
-            MainProgram.placeInstructions.Add(PlaceInstruction);
-            MainProgram.Clock.Start();
+            ApiSet.PlaceOrder(PlaceInstruction);
+
+            BackEnd.clock.Start();
             this.Dispose();
         }
  
         private void clickEnter(object sender, EventArgs e)
         {
-            for (int i = 0; i < Riders.riders.Count; i++)
-            {
-                if (Riders.riders[i].selectionid == ID)
-                {
-                    Riders.riders[i].autobet_ = true;
-                    Riders.riders[i].maxprice = Utils.ToDouble(maximumprice.Text);
-                    Riders.riders[i].minprice = Utils.ToDouble(minimumprice.Text);
-                    Riders.riders[i].meanprice = Utils.ToDouble(startprice.Text);
-                }
-            }
-
-            string price = startprice.Text;
-            string size = amountBox2.Text;
+            Riders.AtID(ID).hasAutoOrder = true;
+            Riders.AtID(ID).maxPrice = Utils.ToDouble(MaxPriceBox.Text);
+            Riders.AtID(ID).minPrice = Utils.ToDouble(MinpriceBox.Text);
+            
+            string price = StartpriceBox.Text;
+            string size = SizeBox.Text;
 
             PlaceInstruction instruction = new PlaceInstruction();
             instruction.OrderType = OrderType.LIMIT;
@@ -117,9 +116,9 @@ namespace TourTrader
 
             instruction.LimitOrder = order;
 
-            MainProgram.placeInstructions.Add(instruction);
+            ApiSet.PlaceOrder(instruction);
 
-            MainProgram.Clock.Start();
+            BackEnd.clock.Start();
             this.Dispose();
         }
 
@@ -128,7 +127,7 @@ namespace TourTrader
 
             if (e.KeyChar == 13)
             {
-                if (startprice.Text == "")
+                if (StartpriceBox.Text == "")
                 clickLayButton(sender, e);
                 else
                 clickEnter(sender, e);

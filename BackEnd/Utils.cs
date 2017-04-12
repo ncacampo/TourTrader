@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TourTrader
 {
-    class Utils
+    public class Utils
     {
-
         public static double ToDouble(string s)
         {
-
             if (s.Contains('.'))
             {
                 string[] split = s.Split('.');
@@ -52,7 +47,7 @@ namespace TourTrader
         /// <summary>
         /// Round the price to what Betfair accepts.
         /// </summary>
-        public static double CheckPrice(double Price)
+        public static double RoundPrice(double Price)
         {
 
             if (Price < 2)
@@ -73,9 +68,10 @@ namespace TourTrader
                 Price -= Price % 2;
             else if (Price < 100)
                 Price -= Price % 5;
-            else if (Price < 1000)
+            else if (Price <= 1000)
                 Price -= Price % 10;
-            return Price;
+            return Math.Round(Price,2);
         }
+
     }
 }

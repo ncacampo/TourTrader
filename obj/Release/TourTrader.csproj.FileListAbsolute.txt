@@ -1,0 +1,13 @@
+C:\Users\gebruiker\Documents\Visual Studio 2015\Projects\TourTrader\TourTrader\bin\Release\TourTrader.exe.config
+C:\Users\gebruiker\Documents\Visual Studio 2015\Projects\TourTrader\TourTrader\bin\Release\TourTrader.exe
+C:\Users\gebruiker\Documents\Visual Studio 2015\Projects\TourTrader\TourTrader\bin\Release\TourTrader.pdb
+C:\Users\gebruiker\Documents\Visual Studio 2015\Projects\TourTrader\TourTrader\bin\Release\Newtonsoft.Json.dll
+C:\Users\gebruiker\Documents\Visual Studio 2015\Projects\TourTrader\TourTrader\bin\Release\Newtonsoft.Json.pdb
+C:\Users\gebruiker\Documents\Visual Studio 2015\Projects\TourTrader\TourTrader\obj\Release\TourTrader.FrontEnd.FrontEnd.resources
+C:\Users\gebruiker\Documents\Visual Studio 2015\Projects\TourTrader\TourTrader\obj\Release\TourTrader.HeaderPanel.resources
+C:\Users\gebruiker\Documents\Visual Studio 2015\Projects\TourTrader\TourTrader\obj\Release\TourTrader.FrontEnd.PricingForm.resources
+C:\Users\gebruiker\Documents\Visual Studio 2015\Projects\TourTrader\TourTrader\obj\Release\TourTrader.Properties.Resources.resources
+C:\Users\gebruiker\Documents\Visual Studio 2015\Projects\TourTrader\TourTrader\obj\Release\TourTrader.FrontEnd.RiderPanel.resources
+C:\Users\gebruiker\Documents\Visual Studio 2015\Projects\TourTrader\TourTrader\obj\Release\TourTrader.csproj.GenerateResource.Cache
+C:\Users\gebruiker\Documents\Visual Studio 2015\Projects\TourTrader\TourTrader\obj\Release\TourTrader.exe
+C:\Users\gebruiker\Documents\Visual Studio 2015\Projects\TourTrader\TourTrader\obj\Release\TourTrader.pdb

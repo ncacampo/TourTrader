@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using TourTrader.TO;
 
 namespace TourTrader
 {   
-    static class API
+    public static class ApiGet
     {
-        private static JsonRpcClient apiClient = new JsonRpcClient(MainProgram.endPoint, MainProgram.appKey, MainProgram.sessionToken);
+        private static JsonRpcClient apiClient = new JsonRpcClient(Program.endPoint, Program.appKey, Program.sessionToken);
 
         public static void connect(ref List<Runner> runners, ref List<RunnerDescription> runnerDescription, ref List<MarketProfitAndLoss> runnerPNL, ref CurrentOrderSummaryReport orders)
         {
@@ -31,7 +30,7 @@ namespace TourTrader
             MarketFilter marketFilter = new MarketFilter();
 
             ISet<string> set = new HashSet<string>();
-            set.Add(MainProgram.marketID);
+            set.Add(Program.marketID);
             marketFilter.MarketIds = set;
 
             var marketSort = MarketSort.FIRST_TO_START;
@@ -40,7 +39,7 @@ namespace TourTrader
             marketProjections.Add(MarketProjection.RUNNER_DESCRIPTION);
 
             List<string> marketIds = new List<string>();
-            marketIds.Add(MainProgram.marketID);
+            marketIds.Add(Program.marketID);
 
             try
             {

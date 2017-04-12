@@ -65,42 +65,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API.cs" />
-    <Compile Include="AutoPrice.cs" />
-    <Compile Include="Analytics.cs" />
-    <Compile Include="ExtractAPI.cs" />
-    <Compile Include="Riders.cs" />
-    <Compile Include="BackEnd.cs" />
-    <Compile Include="CurrentOrderSummary.cs" />
-    <Compile Include="CurrentOrderSummaryReport.cs" />
-    <Compile Include="IClient.cs" />
-    <Compile Include="JasonRPC.cs">
+    <Compile Include="API\ApiGet.cs" />
+    <Compile Include="API\ApiSet.cs" />
+    <Compile Include="BackEnd\AutoOrder.cs" />
+    <Compile Include="BackEnd\Rider.cs" />
+    <Compile Include="Riders_alt.cs" />
+    <Compile Include="FrontEnd\OtherPanels.cs" />
+    <Compile Include="FrontEnd\RiderPanels.cs" />
+    <Compile Include="BackEnd\Metrics.cs" />
+    <Compile Include="BackEnd\Riders.cs" />
+    <Compile Include="BackEnd\BackEnd.cs" />
+    <Compile Include="API\CurrentOrderSummary.cs" />
+    <Compile Include="API\CurrentOrderSummaryReport.cs" />
+    <Compile Include="API\IClient.cs" />
+    <Compile Include="API\JasonRPC.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FrontEnd\HeaderPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrontEnd\HeaderPanel.Designer.cs">
+      <DependentUpon>HeaderPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="JSON\JsonConvert.cs" />
     <Compile Include="JSON\JsonRequest.cs" />
     <Compile Include="JSON\JsonResponse.cs" />
     <Compile Include="JSON\RescriptRequest.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="FrontEnd\FrontEnd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs" />
-    <Compile Include="MainProgram.cs" />
-    <Compile Include="OrderBy.cs" />
-    <Compile Include="PricingForm.cs">
+    <Compile Include="FrontEnd\FrontEnd.Designer.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="API\OrderBy.cs" />
+    <Compile Include="FrontEnd\PricingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PricingForm.Designer.cs" />
+    <Compile Include="FrontEnd\PricingForm.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RescriptClient.cs">
+    <Compile Include="API\RescriptClient.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Rider.cs" />
-    <Compile Include="RiderPanel.cs">
+    <Compile Include="FrontEnd\RiderPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RiderPanel.Designer.cs" />
-    <Compile Include="SortDir.cs" />
+    <Compile Include="FrontEnd\RiderPanel.Designer.cs" />
+    <Compile Include="API\SortDir.cs" />
+    <Compile Include="Riders_backup.cs" />
     <Compile Include="TO\APINGException.cs" />
     <Compile Include="TO\CancelExecutionReport.cs" />
     <Compile Include="TO\CancelInstruction.cs" />
@@ -157,9 +167,12 @@
     <Compile Include="TO\UpdateExecutionReport.cs" />
     <Compile Include="TO\UpdateInstruction.cs" />
     <Compile Include="TO\UpdateInstructionReport.cs" />
-    <Compile Include="Utils.cs" />
-    <EmbeddedResource Include="MainForm.resx" />
-    <EmbeddedResource Include="PricingForm.resx" />
+    <Compile Include="BackEnd\Utils.cs" />
+    <EmbeddedResource Include="FrontEnd\FrontEnd.resx" />
+    <EmbeddedResource Include="FrontEnd\HeaderPanel.resx">
+      <DependentUpon>HeaderPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrontEnd\PricingForm.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -169,7 +182,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RiderPanel.resx" />
+    <EmbeddedResource Include="FrontEnd\RiderPanel.resx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -181,7 +194,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="API\App.config" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -197,6 +210,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Todo.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
