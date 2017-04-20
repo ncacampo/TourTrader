@@ -6,18 +6,18 @@ using System;
 namespace TourTrader
 {
     /// <summary>
-    /// Riders is the internal 'database' class containing all information about the riders.
+    /// Riders is the internal 'database' class containing all rider objects.
     /// </summary>
     public static class Riders
-    {
+    {   
         public static Rider[] riders;
-        private static Dictionary<long, Rider> ridersDict = new Dictionary<long, Rider>();
-        private static HashSet<long> discardedRiders = new HashSet<long>();
+        private static Dictionary<long, Rider> ridersDict = new Dictionary<long, Rider>();                  
+        private static HashSet<long> discardedRiders = new HashSet<long>();                                 // IDs of Riders that we don't want to show
 
         private static List<Runner> runners = new List<Runner>();                                           // data where the API writes into
         private static List<RunnerDescription> runnerDescription = new List<RunnerDescription>();           // Rider data where the API writes into
         private static List<MarketProfitAndLoss> marketPNL = new List<MarketProfitAndLoss>();               // Rider data where the API writes into
-        private static CurrentOrderSummaryReport orders = new CurrentOrderSummaryReport();
+        private static CurrentOrderSummaryReport orders = new CurrentOrderSummaryReport();                  // Order data where the API writes into
 
         public static int Count()
         {
@@ -39,11 +39,14 @@ namespace TourTrader
             discardedRiders.Add(SelectionID);
         }
 
+        /// <summary>
+        /// Get the riders data from the API and sort it to latest matched marketprice
+        /// </summary>
         public static void get()
         {
             try
             {
-                ApiGet.connect(ref runners, ref runnerDescription, ref marketPNL, ref orders);
+                ApiGet.GetAllRiderInfo(ref runners, ref runnerDescription, ref marketPNL, ref orders);
 
                 runners = runners.FindAll(f => !discardedRiders.Contains(f.SelectionId)).OrderBy(f => f.SelectionId).ToList<Runner>();
                 runnerDescription = runnerDescription.FindAll(f => !discardedRiders.Contains(f.SelectionId)).OrderBy(f => f.SelectionId).ToList<RunnerDescription>();
@@ -60,7 +63,7 @@ namespace TourTrader
                 riders = riders.OrderBy(f => f.latestMarketprice).ToArray<Rider>();
 
                 for (int i = 0; i < riders.Count(); i++)
-                    riders[i].cumulative = riders.Take(i).Sum(f => 1 / f.latestMarketprice);
+                    riders[i].overround = riders.Take(i).Sum(f => 1 / f.latestMarketprice);
             }
             catch { }
         }

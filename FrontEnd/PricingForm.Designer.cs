@@ -40,7 +40,7 @@ namespace TourTrader
 
         private void addRiderlabels()
         {
-            addRiderlabel("cumulative",Riders.AtID(ID).cumulative.ToString(),0);
+            addRiderlabel("cumulative",Riders.AtID(ID).overround.ToString(),0);
             addRiderlabel("has_autoorder",Riders.AtID(ID).hasAutoOrder.ToString(),15);
             addRiderlabel("isinthemoney",Riders.AtID(ID).isInthemoney.ToString(),30);
             addRiderlabel("isOpen", Riders.AtID(ID).isOpen.ToString(),45);
@@ -53,9 +53,7 @@ namespace TourTrader
             addRiderlabel("myBid", Riders.AtID(ID).myBid.ToString(),165);
             addRiderlabel("name", Riders.AtID(ID).name.ToString(),180);
             addRiderlabel("pnl", Riders.AtID(ID).pnl.ToString(),195);
-            addRiderlabel("selectionID", Riders.AtID(ID).selectionid.ToString(),210);
             addRiderlabel("totalMarketAmount", Riders.AtID(ID).totalmarketamount.ToString(),240);
-            addRiderlabel("totalMarketAmount_old", Riders.AtID(ID).totalmarketamount_old.ToString(),255);
             addRiderlabel("turnover", Riders.AtID(ID).turnover.ToString(),270);
         }
 

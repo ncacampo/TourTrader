@@ -3,7 +3,10 @@ using System.Windows.Forms;
 using System.Threading;
 
 namespace TourTrader
-{
+{   
+    /// <summary>
+    /// Usercontrol that is screenwide on top of the userinterface. 
+    /// </summary>
     public partial class HeaderPanel : UserControl
     {
         public HeaderPanel()
@@ -27,8 +30,8 @@ namespace TourTrader
 
         private static void ThreadCancelAll()
         {
-            using (JsonRpcClient Client = new JsonRpcClient(Program.endPoint, Program.appKey, Program.sessionToken))
-            { Client.cancelAll(Program.marketID); }
+            using (JsonRpcClient Client = new JsonRpcClient(BackEnd.endPoint, BackEnd.appKey, BackEnd.sessionToken))
+            { Client.cancelAll(BackEnd.marketID); }
         }
 
         public void update()

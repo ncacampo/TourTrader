@@ -12,3 +12,4 @@ C:\Users\gebruiker\Documents\Visual Studio 2015\Projects\TourTrader\TourTrader\o
 C:\Users\gebruiker\Documents\Visual Studio 2015\Projects\TourTrader\TourTrader\obj\Debug\TourTrader.exe
 C:\Users\gebruiker\Documents\Visual Studio 2015\Projects\TourTrader\TourTrader\obj\Debug\TourTrader.pdb
 C:\Users\gebruiker\Documents\Visual Studio 2015\Projects\TourTrader\TourTrader\obj\Debug\TourTrader.csprojResolveAssemblyReference.cache
+C:\Users\gebruiker\Documents\Visual Studio 2015\Projects\TourTrader\TourTrader\obj\Debug\TourTrader.Login.resources

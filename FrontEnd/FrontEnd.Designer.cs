@@ -26,7 +26,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Controls.Add(OtherPanels.mainPanel);
+            this.Controls.Add(RiderPanels.headerPanel);
 
             for (int i = 0; i < RiderPanels.Count(); i++)
             {

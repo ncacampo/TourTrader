@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 
 namespace TourTrader
-{
+{   
+    /// <summary>
+    /// Handles the various global metrics: Expected payoff, risk, last rider traded etc.
+    /// </summary>
     static class Metrics
     {
         private static Dictionary<double, double> pdf;
@@ -60,6 +63,7 @@ namespace TourTrader
                 kurtosis += d.Value * Math.Pow((d.Key - expectedProfit_), 4);
             }
 
+            if(kurtosis > 0)
             kurtosis /= Math.Pow(standardDeviation_, 4);
 
             kurtosis_ = kurtosis;

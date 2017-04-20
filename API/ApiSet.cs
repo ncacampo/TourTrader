@@ -3,7 +3,11 @@ using TourTrader.TO;
 using System.Collections.Generic;
 
 namespace TourTrader
-{
+{   
+
+    /// <summary>
+    /// Functions class to place and cancel orders on the API.
+    /// </summary>
     class ApiSet
     {
         public static void CancelOrders(List<CancelInstruction> cancelInstructions)
@@ -40,26 +44,26 @@ namespace TourTrader
 
         private static void ThreadCancelAll()
         {
-            using (JsonRpcClient Client = new JsonRpcClient(Program.endPoint, Program.appKey, Program.sessionToken))
-            { Client.cancelAll(Program.marketID); }
+            using (JsonRpcClient Client = new JsonRpcClient(BackEnd.endPoint, BackEnd.appKey, BackEnd.sessionToken))
+            { Client.cancelAll(BackEnd.marketID); }
         }
 
         private static void ThreadCancelOrder(List<CancelInstruction> cancelInstructions)
         {
-            using (JsonRpcClient Client = new JsonRpcClient(Program.endPoint, Program.appKey, Program.sessionToken))
-            { Client.cancelOrders(Program.marketID, cancelInstructions); }
+            using (JsonRpcClient Client = new JsonRpcClient(BackEnd.endPoint, BackEnd.appKey, BackEnd.sessionToken))
+            { Client.cancelOrders(BackEnd.marketID, cancelInstructions); }
         }
 
         private static void ThreadReplaceOrder(List<ReplaceInstruction> replaceInstructions)
         {
-            using (JsonRpcClient Client = new JsonRpcClient(Program.endPoint, Program.appKey, Program.sessionToken))
-            { Client.replaceOrders(Program.marketID, replaceInstructions); }
+            using (JsonRpcClient Client = new JsonRpcClient(BackEnd.endPoint,BackEnd.appKey,BackEnd.sessionToken))
+            { Client.replaceOrders(BackEnd.marketID, replaceInstructions); }
         }
 
         public static void ThreadPlaceOrder(List<PlaceInstruction> placeInstructions)
         {
-            JsonRpcClient Client_ = new JsonRpcClient(Program.endPoint, Program.appKey, Program.sessionToken);
-            Client_.placeOrders(Program.marketID, placeInstructions);
+            JsonRpcClient Client_ = new JsonRpcClient(BackEnd.endPoint, BackEnd.appKey, BackEnd.sessionToken);
+            Client_.placeOrders(BackEnd.marketID, placeInstructions);
         }
     }
 

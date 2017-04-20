@@ -2,10 +2,13 @@
 using System.Linq;
 
 namespace TourTrader
-{
+{   
+    /// <summary>
+    /// Collection of functions to get price data into formats allowed by the Betfair API.
+    /// </summary>
     public class Utils
     {
-        public static double ToDouble(string s)
+        public static double String2Double(string s)
         {
             if (s.Contains('.'))
             {
@@ -16,6 +19,9 @@ namespace TourTrader
             return Convert.ToDouble(s);
         }
 
+        /// <summary>
+        /// The price increments allowed by Betfair
+        /// </summary>
         public static double Increment(double d)
         {
             double Increment = 0;
@@ -45,7 +51,7 @@ namespace TourTrader
         }
 
         /// <summary>
-        /// Round the price to what Betfair accepts.
+        /// Round the price to a format that Betfair accepts.
         /// </summary>
         public static double RoundPrice(double Price)
         {

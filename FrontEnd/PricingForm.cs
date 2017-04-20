@@ -19,7 +19,7 @@ namespace TourTrader
             this.NameLabel.Text = riderName;
 
             string stringRequest = "https://sportsiteexweb.betfair.com/betting/LoadRunnerInfoChartAction.do?marketId=";
-            stringRequest += Program.marketID.ToString().Split('.')[1].ToString();
+            stringRequest += BackEnd.marketID.ToString().Split('.')[1].ToString();
             stringRequest += "&";
             stringRequest += "selectionId=";
             stringRequest += this.ID.ToString();
@@ -51,8 +51,8 @@ namespace TourTrader
             
             order.PersistenceType = PersistenceType.PERSIST;
             
-            order.Price = Utils.RoundPrice(Utils.ToDouble(price));
-            order.Size = Utils.ToDouble(size);
+            order.Price = Utils.RoundPrice(Utils.String2Double(price));
+            order.Size = Utils.String2Double(size);
 
             placeInstruction.LimitOrder = order;
 
@@ -81,8 +81,8 @@ namespace TourTrader
 
             order.PersistenceType = PersistenceType.PERSIST;
 
-            order.Price = Utils.RoundPrice(Utils.ToDouble(price));
-            order.Size = Utils.ToDouble(size);
+            order.Price = Utils.RoundPrice(Utils.String2Double(price));
+            order.Size = Utils.String2Double(size);
 
             PlaceInstruction.LimitOrder = order;
 
@@ -95,8 +95,8 @@ namespace TourTrader
         private void clickEnter(object sender, EventArgs e)
         {
             Riders.AtID(ID).hasAutoOrder = true;
-            Riders.AtID(ID).maxPrice = Utils.ToDouble(MaxPriceBox.Text);
-            Riders.AtID(ID).minPrice = Utils.ToDouble(MinpriceBox.Text);
+            Riders.AtID(ID).maxPrice = Utils.String2Double(MaxPriceBox.Text);
+            Riders.AtID(ID).minPrice = Utils.String2Double(MinpriceBox.Text);
             
             string price = StartpriceBox.Text;
             string size = SizeBox.Text;
@@ -111,7 +111,7 @@ namespace TourTrader
 
             order.PersistenceType = PersistenceType.PERSIST;
 
-            order.Price = Utils.ToDouble(price);
+            order.Price = Utils.String2Double(price);
             order.Size = Convert.ToDouble(size);
 
             instruction.LimitOrder = order;

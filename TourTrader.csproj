@@ -69,8 +69,6 @@
     <Compile Include="API\ApiSet.cs" />
     <Compile Include="BackEnd\AutoOrder.cs" />
     <Compile Include="BackEnd\Rider.cs" />
-    <Compile Include="Riders_alt.cs" />
-    <Compile Include="FrontEnd\OtherPanels.cs" />
     <Compile Include="FrontEnd\RiderPanels.cs" />
     <Compile Include="BackEnd\Metrics.cs" />
     <Compile Include="BackEnd\Riders.cs" />
@@ -95,6 +93,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrontEnd\FrontEnd.Designer.cs" />
+    <Compile Include="FrontEnd\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrontEnd\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="API\OrderBy.cs" />
     <Compile Include="FrontEnd\PricingForm.cs">
@@ -110,7 +114,6 @@
     </Compile>
     <Compile Include="FrontEnd\RiderPanel.Designer.cs" />
     <Compile Include="API\SortDir.cs" />
-    <Compile Include="Riders_backup.cs" />
     <Compile Include="TO\APINGException.cs" />
     <Compile Include="TO\CancelExecutionReport.cs" />
     <Compile Include="TO\CancelInstruction.cs" />
@@ -173,6 +176,9 @@
       <DependentUpon>HeaderPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrontEnd\PricingForm.resx" />
+    <EmbeddedResource Include="FrontEnd\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

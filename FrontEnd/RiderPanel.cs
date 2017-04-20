@@ -4,7 +4,10 @@ using TourTrader.TO;
 using System.Windows.Forms;
 
 namespace TourTrader
-{
+{   
+    /// <summary>
+    /// The panel of a single rider (shown as a row on the UI.)
+    /// </summary>
     public partial class RiderPanel : UserControl
     {
         protected int controlRank;
@@ -58,7 +61,7 @@ namespace TourTrader
             PlaceInstruction Instruction = new PlaceInstruction();
             LimitOrder order = new LimitOrder();
 
-            order.Price = Utils.ToDouble(this.back.Text);
+            order.Price = Utils.String2Double(this.back.Text);
             order.Size = 2;
 
             Instruction.OrderType = OrderType.LIMIT;
@@ -80,7 +83,7 @@ namespace TourTrader
             PlaceInstruction Instruction = new PlaceInstruction();
             LimitOrder order = new LimitOrder();
             
-            order.Price = Utils.ToDouble(this.lay.Text);
+            order.Price = Utils.String2Double(this.lay.Text);
             order.Size = 5;
             
             Instruction.OrderType = OrderType.LIMIT;
@@ -106,7 +109,7 @@ namespace TourTrader
         {
             BackEnd.clock.Stop();
             for (int i = controlRank ; i<Riders.Count()  ; i++) 
-            Riders.discard(Riders.At(i).selectionid);
+            Riders.discard(Riders.At(i).selectionID);
             BackEnd.clock.Start();
         }
     }   

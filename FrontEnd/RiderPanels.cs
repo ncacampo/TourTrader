@@ -4,16 +4,21 @@ using System.Collections.Generic;
 using System.Drawing;
 
 namespace TourTrader
-{
+{   
+    /// <summary>
+    /// Container of all rider panels.
+    /// </summary>
     class RiderPanels
     {
         static public List<RiderPanel> riderPanels = new List<RiderPanel>();
+        static public HeaderPanel headerPanel = new HeaderPanel();
 
         static RiderPanels()
         {
-
-            for (int j = 0; j < 3; j++) // 4 of 3
-                for (int i = 0; i < 33; i++)  // 48 of 33
+            headerPanel.update();
+            
+            for (int j = 0; j < 4; j++) // 4(wide screen) or 3(small screen)
+                for (int i = 0; i < 48; i++)  //48(wide screen) or 33(small screen)
                 {
                     RiderPanel panel = new RiderPanel(i);
                     Point p = new Point(panel.Width * j, 25 + panel.Height * i);
@@ -34,6 +39,8 @@ namespace TourTrader
 
         public static void Update()
         {
+            headerPanel.update();
+
             for (int i = 0; i < Math.Min(riderPanels.Count, Riders.Count()); i++)
             {
                 riderPanels[i].selectionID = Riders.At(i).selectionID;
@@ -53,7 +60,7 @@ namespace TourTrader
                     riderPanels[i].StatusButton.BackColor = Color.Red;
                 }
 
-                riderPanels[i].overround.Text = Math.Round(Riders.At(i).cumulative, 2).ToString();
+                riderPanels[i].overround.Text = Math.Round(Riders.At(i).overround, 2).ToString();
                 riderPanels[i].turnover.Text = Math.Round(Riders.At(i).Turnover(),0).ToString();
                 riderPanels[i].lay.Text = Riders.At(i).marketBid.ToString();
                 riderPanels[i].back.Text = Riders.At(i).marketAsk.ToString();
@@ -69,3 +76,4 @@ namespace TourTrader
         }
     }
 }
+

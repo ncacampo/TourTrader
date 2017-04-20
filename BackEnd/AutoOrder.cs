@@ -3,9 +3,15 @@ using TourTrader.TO;
 using System.Collections.Generic;
 
 namespace TourTrader
-{
-    static class AutoOrder
-    {
+{   
+    /// <summary>
+    /// Handles the automatic pricing feature.
+    /// </summary>
+    static class AutoPrice
+    {   
+        /// <summary>
+        /// Automatically overbids competitor prices according to manual set price maxima.
+        /// </summary>
         public static void Update()
         {
             List<ReplaceInstruction> replaceInstructions = new List<ReplaceInstruction>();
